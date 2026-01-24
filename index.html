@@ -1477,6 +1477,16 @@ items.forEach((item, index)=>{
   card.onclick = ()=> openPanel(index);
   cardsWrap.appendChild(card);
 });
+	.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.card {
+  height: 100%;
+}
 
 const panel = document.getElementById("panel");
 const panelTitle = document.getElementById("panelTitle");
@@ -1562,3 +1572,4 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
