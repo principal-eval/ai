@@ -104,46 +104,69 @@ header h1{margin:0; font-size:20px; font-weight:700}
   color: var(--primary-dark);
   font-weight: 900;
 }
-/* ⭐⭐⭐ Header centered logo١ layout ⭐⭐⭐ */
-header{
+/* ✅ Header مرتب + شعار واضح بدون تضخيم البار */
+.site-header{
   background: var(--primary);
   color:#fff;
-  padding: 10px 16px;      /* أقل عشان ما يكبر البار */
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* يمين / وسط / يسار */
-  align-items: center;
-  gap: 12px;
-  min-height: 70px;        /* تحكم بالارتفاع */
+  padding: 12px 18px;          /* يقلل ارتفاع الهيدر */
 }
 
-header h1{
+.header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.header-right{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.header-title{
   margin:0;
-  font-size:18px;
+  font-size:20px;
   font-weight:700;
-  text-align: right;       /* عشان RTL */
+  line-height: 1.2;
 }
 
 .header-sub{
   font-size:12px;
   opacity:.9;
-  text-align: left;        /* يكون بالجهة الثانية */
+  line-height: 1.4;
 }
 
+/* الشعار */
 .header-logo-wrapper{
-  background:#fff;         /* يطلع الشعار حتى لو أبيض */
-  padding: 6px 14px;
-  border-radius: 12px;
+  flex: none;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.92);   /* يخلي الشعار واضح على الأزرق */
+  border: 1px solid rgba(255,255,255,.35);
 }
 
 .header-logo{
-  height: 42px;            /* كبّري/صغّري براحتك */
+  height: 44px;     /* كبّريها/صغّريها هنا */
   width: auto;
   display:block;
 }
 
+/* 📱 موبايل */
+@media (max-width: 640px){
+  .header-inner{
+    flex-direction: column;
+    text-align:center;
+  }
+  .header-title{ font-size:18px; }
+  .header-logo{ height: 52px; }        /* يكبر شوي على الجوال */
+}
 /* موبايل: نخليه سطرين بشكل مرتب */
 @media (max-width:640px){
   header{
@@ -157,7 +180,7 @@ header h1{
   .header-logo-wrapper{ justify-self:center; }
   .header-logo{ height: 46px; }
 }
-.header-logo١{
+.header-logo{
   height: 95px;
   width: auto;
 filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
@@ -184,7 +207,7 @@ filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
     padding: 10px 16px;
   }
 
-  .header-logo١{
+  .header-logo{
     height: 95px;
   }
 }
@@ -193,15 +216,16 @@ filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
 </head>
 
 <body>
-<header class="header-bar">
-  <div class="header-text right">
-    تقييم أداء مدير المدرسة
-  </div>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-right">
+      <h1 class="header-title">تقييم أداء مدير المدرسة</h1>
+      <div class="header-sub">اضغط على أي بطاقة لعرض التفسير وسلّم التقدير</div>
+    </div>
 
-  <img src="logo١.png" alt="وزارة التعليم" class="header-logo١">
-
-  <div class="header-text left">
-    اضغط على أي بطاقة لعرض التفسير وسلّم التقدير
+    <div class="header-logo-wrapper">
+      <img src="logo.png" class="header-logo" alt="شعار وزارة التعليم">
+    </div>
   </div>
 </header>
 <div class="container">
@@ -1664,6 +1688,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
