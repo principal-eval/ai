@@ -102,44 +102,55 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
 .site-header{
   background: var(--primary);
   color:#fff;
-  padding: 18px 16px;
+  padding: 14px 16px;
+}
+
+.header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 10px;
+}
+
+/* العنوان */
+.header-title{
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
   text-align: center;
+  line-height: 1.3;
 }
 
 /* الشعار */
 .header-logo-wrapper{
   display:flex;
   justify-content:center;
-  margin-bottom: 10px;
 }
 
 .header-logo{
-  height: 95px;      /* 👈 حجم واضح */
+  height: 82px;         /* 👈 كبرته */
   width: auto;
   display:block;
-  background:#fff;   /* يخليه واضح فوق الأزرق */
-  padding:8px 14px;
-  border-radius:12px;
-}
-
-/* العنوان */
-.header-title{
-  margin:0;
-  font-size:22px;
-  font-weight:700;
+  background:#fff;
+  padding: 10px 14px;
+  border-radius: 16px;
 }
 
 /* النص الفرعي */
 .header-sub{
-  margin-top:6px;
-  font-size:13px;
-  opacity:.95;
+  font-size: 13px;
+  opacity: .95;
+  text-align: center;
 }
 
 /* موبايل */
 @media (max-width:640px){
-  .header-logo{ height:70px; }
-  .header-title{ font-size:18px; }
+  .header-title{ font-size: 18px; }
+  .header-logo{ height: 76px; border: 1px solid rgba(255,255,255,.35);}  /* واضح بالجوال */
+  .header-sub{ font-size: 12.5px; }
 }
 </style>
 </head>
@@ -147,16 +158,17 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
 <body>
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-sub">اضغط على أي بطاقة لعرض التفسير وسلّم التقدير</div>
 
     <h1 class="header-title">تقييم أداء مدير المدرسة</h1>
 
     <div class="header-logo-wrapper">
       <img src="logo.png" class="header-logo" alt="شعار وزارة التعليم">
     </div>
+
+    <div class="header-sub">اضغط على أي بطاقة لعرض التفسير وسلّم التقدير</div>
+
   </div>
 </header>
-	
 <div class="container">
 
   <div id="cards" class="grid"></div>
@@ -1617,6 +1629,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
