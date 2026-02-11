@@ -104,125 +104,67 @@ header h1{margin:0; font-size:20px; font-weight:700}
   color: var(--primary-dark);
   font-weight: 900;
 }
-/* ✅ Header مرتب + شعار واضح بدون تضخيم البار */
+/* ===== Header جديد مرتب ===== */
 .site-header{
   background: var(--primary);
   color:#fff;
-  padding: 12px 18px;          /* يقلل ارتفاع الهيدر */
-}
-
-.header-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.header-right{
-  display:flex;
-  flex-direction:column;
-  gap: 6px;
-  min-width: 0;
-}
-
-.header-title{
-  margin:0;
-  font-size:20px;
-  font-weight:700;
-  line-height: 1.2;
-}
-
-.header-sub{
-  font-size:12px;
-  opacity:.9;
-  line-height: 1.4;
+  padding: 18px 16px;
+  text-align: center;
 }
 
 /* الشعار */
 .header-logo-wrapper{
-  flex: none;
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding: 6px 10px;
-  border-radius: 10px;
-  background: rgba(255,255,255,.92);   /* يخلي الشعار واضح على الأزرق */
-  border: 1px solid rgba(255,255,255,.35);
+  margin-bottom: 10px;
 }
 
 .header-logo{
-  height: 44px;     /* كبّريها/صغّريها هنا */
+  height: 80px;      /* 👈 حجم واضح */
   width: auto;
   display:block;
+  background:#fff;   /* يخليه واضح فوق الأزرق */
+  padding:8px 14px;
+  border-radius:12px;
 }
 
-/* 📱 موبايل */
-@media (max-width: 640px){
-  .header-inner{
-    flex-direction: column;
-    text-align:center;
-  }
-  .header-title{ font-size:18px; }
-  .header-logo{ height: 52px; }        /* يكبر شوي على الجوال */
+/* العنوان */
+.header-title{
+  margin:0;
+  font-size:22px;
+  font-weight:700;
 }
-/* موبايل: نخليه سطرين بشكل مرتب */
+
+/* النص الفرعي */
+.header-sub{
+  margin-top:6px;
+  font-size:13px;
+  opacity:.95;
+}
+
+/* موبايل */
 @media (max-width:640px){
-  header{
-    grid-template-columns: 1fr;
-    text-align: center;
-    min-height: unset;
-    padding: 12px 14px;
-  }
-  header h1{ text-align:center; }
-  .header-sub{ text-align:center; }
-  .header-logo-wrapper{ justify-self:center; }
-  .header-logo{ height: 46px; }
-}
-.header-logo{
-  height: 95px;
-  width: auto;
-filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
-  justify-self: center;
-}
-
-.header-text{
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.header-text.right{
-  text-align: right;
-}
-
-.header-text.left{
-  text-align: center;
-  opacity: .6;
-  font-size: 12px;
-}
-@media (max-width: 640px){
-  header{
-    min-height: 68px;
-    padding: 10px 16px;
-  }
-
-  .header-logo{
-    height: 95px;
-  }
-}
+  .header-logo{ height:70px; }
+  .header-title{ font-size:18px; }
 }
 </style>
 </head>
 
 <body>
 <header class="site-header">
-  <div class="header-inner">
-    <div class="header-right">
-      <h1 class="header-title">تقييم أداء مدير المدرسة</h1>
-      <div class="header-sub">اضغط على أي بطاقة لعرض التفسير وسلّم التقدير</div>
-    </div>
 
+  <div class="header-logo-wrapper">
+    <img src="logo.png" class="header-logo" alt="شعار وزارة التعليم">
+  </div>
+
+  <h1 class="header-title">تقييم أداء مدير المدرسة</h1>
+
+  <div class="header-sub">
+    اضغط على أي بطاقة لعرض التفسير وسلّم التقدير
+  </div>
+
+</header>
+	
     <div class="header-logo-wrapper">
       <img src="logo.png" class="header-logo" alt="شعار وزارة التعليم">
     </div>
@@ -1688,6 +1630,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
