@@ -98,7 +98,7 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   color: var(--primary-dark);
   font-weight: 900;
 }
-/* ====== HEADER احترافي ====== */
+/* ====== HEADER (شعار يمين + عنوان يسار) ====== */
 .site-header{
   background: linear-gradient(135deg,#1f7acb,#0d5ea6);
   color:#fff;
@@ -106,51 +106,33 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  direction:ltr;   /* 👈 هذا المهم */
+  gap: 18px;
+  direction:ltr; /* توزيع الأعمدة */
 }
-	.header-left{
+
+/* اليسار: العنوان + العنوان الفرعي */
+.header-left{
+  flex: 1;
   display:flex;
   flex-direction:column;
   gap:6px;
   text-align:left;
+  direction:rtl; /* العربية صحيحة داخل العمود */
 }
 
+/* اليمين: الشعار */
 .header-right{
-  text-align:right;
-}
-
-.header-logo{
-  height:100px;
-  width:auto;
-}
-/* الأعمدة الثلاثة */
-.header-right{
-  flex:1;
-  text-align:right;
-}
-
-.header-center{
-  flex:1;
+  flex: 0 0 auto;
   display:flex;
-  justify-content:right;
-}
-
-.header-left{
-  flex:1;
-  text-align:left;
+  align-items:center;
+  justify-content:flex-end;
 }
 
 /* الشعار */
 .header-logo{
-  height:120px;
+  height:120px; /* تقدرين تخلينها 140 إذا تبين */
   width:auto;
   display:block;
-  transition:transform .3s ease;
-}
-
-.header-logo:hover{
-  transform:scale(1.05);
 }
 
 /* العنوان */
@@ -158,34 +140,39 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   margin:0;
   font-size:24px;
   font-weight:900;
-  letter-spacing:.5px;
+  letter-spacing:.2px;
 }
 
-/* النص الفرعي */
+/* العنوان الفرعي */
 .header-sub{
+  margin:0;
   font-size:14px;
   opacity:.85;
   line-height:1.6;
 }
 
+/* موبايل */
+@media (max-width:640px){
+  .site-header{
+    padding: 18px 16px;
+  }
+  .header-logo{ height:90px; }
+  .header-title{ font-size:20px; }
+}
 
 </style>
 </head>
 
 <body>
 <header class="site-header">
-
   <div class="header-left">
     <h1 class="header-title">تقييم أداء مدير المدرسة</h1>
-    <div class="header-sub">
-      اضغط على أي بطاقة لعرض التفسير وسلّم التقدير
-    </div>
+    <div class="header-sub">اضغط على أي بطاقة لعرض التفسير وسلّم التقدير</div>
   </div>
 
   <div class="header-right">
     <img src="logo.png" class="header-logo" alt="شعار وزارة التعليم">
   </div>
-
 </header>
 <div class="container">
 
@@ -1647,6 +1634,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
