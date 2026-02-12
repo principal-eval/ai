@@ -102,70 +102,86 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
 .site-header{
   background: var(--primary);
   color:#fff;
-  padding: 14px 16px;
+  padding: 20px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.header-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap: 10px;
+/* تقسيم الهيدر */
+.header-right{
+  flex:1;
+  text-align:right;
 }
 
-/* العنوان */
-.header-title{
-  margin: 0;
-  font-size: 22px;
-  font-weight: 800;
-  text-align: center;
-  line-height: 1.3;
-}
-
-/* الشعار */
-.header-logo-wrapper{
+.header-center{
+  flex:1;
   display:flex;
   justify-content:center;
 }
 
+.header-left{
+  flex:1;
+  text-align:left;
+}
+
+/* الشعار */
 .header-logo{
-  height: 140px;         /* 👈 كبرته */
-  width: auto;
+  height:140px;
+  width:auto;
   display:block;
-  
+}
+
+/* العنوان */
+.header-title{
+  margin:0;
+  font-size:22px;
+  font-weight:800;
 }
 
 /* النص الفرعي */
 .header-sub{
-  font-size: 13px;
-  opacity: .95;
-  text-align: center;
+  font-size:14px;
+  opacity:.95;
 }
 
 /* موبايل */
-@media (max-width:640px){
-  .header-title{ font-size: 18px; }
-  .header-logo{ height: 110px; border: 1px solid rgba(255,255,255,.35);}  /* واضح بالجوال */
-  .header-sub{ font-size: 12.5px; }
+@media (max-width:768px){
+  .site-header{
+    flex-direction:column;
+    gap:12px;
+    text-align:center;
+  }
+
+  .header-right,
+  .header-left{
+    text-align:center;
+  }
+
+  .header-logo{
+    height:100px;
+  }
 }
 </style>
 </head>
 
 <body>
 <header class="site-header">
-  <div class="header-inner">
 
+  <div class="header-right">
     <h1 class="header-title">تقييم أداء مدير المدرسة</h1>
-
-    <div class="header-logo-wrapper">
-      <img src="logo.png" class="header-logo" alt="شعار وزارة التعليم">
-    </div>
-
-    <div class="header-sub">اضغط على أي بطاقة لعرض التفسير وسلّم التقدير</div>
-
   </div>
+
+  <div class="header-center">
+    <img src="logo.png" class="header-logo" alt="شعار وزارة التعليم">
+  </div>
+
+  <div class="header-left">
+    <div class="header-sub">
+      اضغط على أي بطاقة لعرض التفسير وسلّم التقدير
+    </div>
+  </div>
+
 </header>
 <div class="container">
 
@@ -1627,6 +1643,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
