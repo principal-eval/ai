@@ -102,13 +102,28 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
 .site-header{
   background: linear-gradient(135deg,#1f7acb,#0d5ea6);
   color:#fff;
-  padding: 28px 40px;
+  padding: 22px 40px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  position:relative;
+
+  direction:ltr;   /* 👈 هذا المهم */
+}
+	.header-left{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  text-align:left;
 }
 
+.header-right{
+  text-align:right;
+}
+
+.header-logo{
+  height:120px;
+  width:auto;
+}
 /* الأعمدة الثلاثة */
 .header-right{
   flex:1;
@@ -1654,6 +1669,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
