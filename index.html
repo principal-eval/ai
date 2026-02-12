@@ -98,17 +98,18 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   color: var(--primary-dark);
   font-weight: 900;
 }
-/* ===== Header جديد مرتب ===== */
+/* ====== HEADER احترافي ====== */
 .site-header{
-  background: var(--primary);
+  background: linear-gradient(135deg,#1f7acb,#0d5ea6);
   color:#fff;
-  padding: 20px 30px;
+  padding: 28px 40px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  position:relative;
 }
 
-/* تقسيم الهيدر */
+/* الأعمدة الثلاثة */
 .header-right{
   flex:1;
   text-align:right;
@@ -130,27 +131,36 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   height:140px;
   width:auto;
   display:block;
+  transition:transform .3s ease;
+}
+
+.header-logo:hover{
+  transform:scale(1.05);
 }
 
 /* العنوان */
 .header-title{
   margin:0;
-  font-size:22px;
-  font-weight:800;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:.5px;
 }
 
 /* النص الفرعي */
 .header-sub{
   font-size:14px;
-  opacity:.95;
+  opacity:.85;
+  line-height:1.6;
 }
 
-/* موبايل */
+/* ====== موبايل ====== */
 @media (max-width:768px){
+
   .site-header{
     flex-direction:column;
-    gap:12px;
+    gap:16px;
     text-align:center;
+    padding:22px 16px;
   }
 
   .header-right,
@@ -159,7 +169,11 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   }
 
   .header-logo{
-    height:100px;
+    height:110px;
+  }
+
+  .header-title{
+    font-size:20px;
   }
 }
 </style>
@@ -1643,6 +1657,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
