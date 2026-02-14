@@ -110,12 +110,12 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   direction: rtl;
 }
 .level-line{
-  font-size:18px;
-  line-height:2.6;
-  margin-bottom:20px;
-  font-weight:500;
-  padding-right:28px;
-  position:relative;
+  font-size:17px;
+  line-height:2.3;
+  margin-bottom:14px;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:600;
 }
 
 .level-line::before{
@@ -1632,12 +1632,23 @@ function setActiveLevel(level, item){
     .filter(Boolean);
 
   // عرض الأسطر ملونة
-  levelText.innerHTML = lines
+ const gradients = [
+  "linear-gradient(90deg,#e6f4ff,#ffffff)",
+  "linear-gradient(90deg,#e8fff3,#ffffff)",
+  "linear-gradient(90deg,#fff7e6,#ffffff)",
+  "linear-gradient(90deg,#f3e8ff,#ffffff)",
+  "linear-gradient(90deg,#e6fffb,#ffffff)"
+];
+
+levelText.innerHTML = lines
   .map((line, i) =>
-  `<div class="level-line">${line}</div>`
+    `<div class="level-line" 
+      style="background:${gradients[i % gradients.length]};
+             border-right:4px solid var(--primary-dark);">
+       ⭐ ${line}
+     </div>`
   )
   .join("");
-
   // تفسيرات المستوى
 //  loadEvidence(levelData.evidence);
 }
@@ -1665,6 +1676,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
