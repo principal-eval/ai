@@ -50,8 +50,18 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
 .scale button:hover{ border-color:var(--accent); box-shadow:0 4px 10px rgba(10,94,168,.15)}
 .scale button.active{ background:var(--primary); color:#fff; border-color:var(--accent)}
 
-.level-desc{margin-top:10px; background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:12px; font-size:14px; line-height:1.7;}
-.level-title{font-weight:700; color:var(--primary-dark); margin-bottom:6px}
+.level-desc{
+  margin-top:10px;
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:10px;
+  padding:16px 18px;
+  font-size:16px;
+  line-height:2.2;
+
+  border-right:4px solid var(--primary); /* 👈 هذا هنا */
+}
+	.level-title{font-weight:700; color:var(--primary-dark); margin-bottom:6px}
 
 .tips{margin-top:14px; font-size:16px; color:var(--muted)}
 
@@ -99,11 +109,22 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   font-weight: 700;
   direction: rtl;
 }
-	.level-line{
-  font-size:16px;
-  line-height:1.9;
+.level-line{
+  font-size:18px;
+  line-height:2.6;
+  margin-bottom:20px;
+  font-weight:500;
+  padding-right:28px;
+  position:relative;
 }
-.desc-list li::before {
+
+.level-line::before{
+  content:"⭐";
+  position:absolute;
+  right:0;
+  top:0;
+}
+	.desc-list li::before {
   content: "* ";
   color: var(--primary-dark);
   font-weight: 900;
@@ -1613,7 +1634,7 @@ function setActiveLevel(level, item){
   // عرض الأسطر ملونة
   levelText.innerHTML = lines
   .map((line, i) =>
-    `<div class="level-line" style="color:${lineColors[i % lineColors.length]}">⭐ ${line}</div>`
+  `<div class="level-line">${line}</div>`
   )
   .join("");
 
@@ -1644,6 +1665,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
