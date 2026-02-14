@@ -99,6 +99,10 @@ body{margin:0; background:var(--bg); font-family:"Segoe UI", Tahoma, sans-serif;
   font-weight: 700;
   direction: rtl;
 }
+	.level-line{
+  font-size:16px;
+  line-height:1.9;
+}
 .desc-list li::before {
   content: "* ";
   color: var(--primary-dark);
@@ -1608,10 +1612,10 @@ function setActiveLevel(level, item){
 
   // عرض الأسطر ملونة
   levelText.innerHTML = lines
-    .map((line, i) =>
-      `<div style="color:${lineColors[i % lineColors.length]}">⭐ ${line}</div>`
-    )
-    .join("");
+  .map((line, i) =>
+    `<div class="level-line" style="color:${lineColors[i % lineColors.length]}">⭐ ${line}</div>`
+  )
+  .join("");
 
   // تفسيرات المستوى
 //  loadEvidence(levelData.evidence);
@@ -1640,6 +1644,7 @@ function loadEvidence(list){
 </script>
 </body>
 </html>
+
 
 
 
